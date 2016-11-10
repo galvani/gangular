@@ -1,0 +1,71 @@
+{
+  "name": "gangular",
+  "version": "2.1.1-30",
+  "description": "Angular 2 TS BoilerPlate",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:galvani/gangular.git"
+  },
+  "dependencies": {
+    "@angular/common": "~2.1.1",
+    "@angular/compiler": "~2.1.1",
+    "@angular/core": "~2.1.1",
+    "@angular/forms": "~2.1.1",
+    "@angular/http": "~2.1.1",
+    "@angular/platform-browser": "~2.1.1",
+    "@angular/platform-browser-dynamic": "~2.1.1",
+    "@angular/router": "~3.1.1",
+    "@angular/upgrade": "~2.1.1",
+    "angular-in-memory-web-api": "~0.1.13",
+    "angular2-config": "^1.1.1",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "zone.js": "^0.6.25"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "browserify-livereload": "^1.0.8",
+    "catw": "^1.0.1",
+    "concurrently": "^2.1.0",
+    "factor-bundle": "^2.5.0",
+    "less": "^2.7.1",
+    "lite-server": "^2.2.0",
+    "minimatch": "^3.0.3",
+    "stringify": "^5.1.0",
+    "ts-helpers": "^1.1.2",
+    "tsify": "^0.16.0",
+    "tslint": "3.7.0-dev.2",
+    "typings": "^1.0.4",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "build-js": "./node_modules/.bin/browserify app/main.ts app/vendor.ts -p tsify -p [ factor-bundle -o ./public/js/main.js -o ./public/js/vendor.js ] -o ./public/js/common.js",
+    "build-css": "./node_modules/.bin/lessc ./less/app.less > ./public/css/bundle.css",
+    "watch-js": "./node_modules/.bin/watchify app/main.ts app/vendor.ts -p tsify -p [ factor-bundle -o ./public/js/main.js -o ./public/js/vendor.js ] -o ./public/js/common.js",
+    "watch-css": "./node_modules/.bin/catw -w './less/*.less' -c 'npm run build-css'",
+    "watch": "concurrently \"npm run watch-js\" \"npm run watch-css\"",
+    "go": "concurrently \"npm run watch-js\" \"npm run watch-css\" \"npm run serve\"",
+    "postinstall": "typings install",
+    "serve": "npm run build && lite-server",
+    "build": "concurrently \"npm run build-js\" \"npm run build-css\""
+  },
+  "keywords": [
+    "angular2",
+    "TypeScript",
+    "browserify"
+  ],
+  "author": "Jan Kozak <galvani78@gmail.com>",
+  "license": "MIT",
+  "stringify": {
+    "appliesTo": {
+      "includeExtensions": [
+        ".html"
+      ]
+    },
+    "minify": true
+  }
+}
