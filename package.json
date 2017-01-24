@@ -1,6 +1,6 @@
 {
   "name": "gangular",
-  "version": "2.4.4-30",
+  "version": "2.4.4",
   "description": "Angular 2 TS BoilerPlate",
   "main": "index.js",
   "repository": {
@@ -21,18 +21,18 @@
     "angular2-config": "^1.1.1",
     "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.8",
+    "reflect-metadata": "^0.1.9",
     "rxjs": "^5.0.3",
     "systemjs": "0.19.39",
     "zone.js": "^0.7.2"
   },
   "devDependencies": {
-    "browserify": "^13.0.1",
-    "browserify-livereload": "^1.0.8",
+    "browserify": "^13.3.0",
+    "browserify-livereload": "^1.0.9",
     "catw": "^1.0.1",
     "concurrently": "^2.1.0",
     "factor-bundle": "^2.5.0",
-    "less": "^2.7.1",
+    "less": "^2.7.2",
     "lite-server": "^2.2.0",
     "minimatch": "^3.0.3",
     "stringify": "^5.1.0",
@@ -40,7 +40,7 @@
     "tsify": "^0.16.0",
     "tslint": "3.7.0-dev.2",
     "typings": "^1.0.4",
-    "watchify": "^3.7.0"
+    "watchify": "^3.8.0"
   },
   "scripts": {
     "build-js": "./node_modules/.bin/browserify app/main.ts app/vendor.ts -p tsify -p [ factor-bundle -o ./public/js/main.js -o ./public/js/vendor.js ] -o ./public/js/common.js",
